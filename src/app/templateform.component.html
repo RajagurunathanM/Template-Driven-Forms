@@ -1,5 +1,6 @@
+<div class="jumbotron">
 
-<div id="MyForm" >
+  <div id="MyForm" >
   <h1>Student Registration Form</h1>
 
 
@@ -41,30 +42,30 @@
         <label for="phonenumber" >Phone Number</label>
       </div>
       <div class="form-control">
-        <input validation required [maxLength]="10" minlength="10" [(ngModel)]="phonenumber" #ngphonenumber="ngModel" name="phonenumber" type="text" id="phonenumber" />
+        <input class="alert alert-danger" validation required [maxLength]="10" minlength="10" [(ngModel)]="phonenumber" #ngphonenumber="ngModel" name="phonenumber" type="text" id="phonenumber" />
 
          <div *ngIf="ngphonenumber.touched && ngphonenumber.errors?.required">Please enter your Phone number</div>
-        <div 
+        <div class="alert alert-danger" 
         *ngIf="ngphonenumber.touched && ngphonenumber.errors?.minlength">Phone number standard length is 10</div>
         
       </div>
        <br>
 
-      <div *ngIf="ngphonenumber.valid && ngemailaddress.valid then submitbtn"></div>
-
-      <ng-template #submitbtn class="form-control">
-        <input class="btn btn-primary" type="button" value="Submit" (click)="onSubmit()" />
-      </ng-template>
+      <button [disabled]="ngfname.invalid || nglname.invalid || ngphonenumber.invalid || ngemailaddress.invalid" (click)="onSubmit()">Submit</button>
       
     </div> 
 
   </form>
   
-  <!-- <div style="cololr:red">
-    <h1>{{firstname}}</h1>
-    <h1>{{lastname}}</h1>
-    <h1>{{emailaddress}}</h1>
-    <h1>{{phonenumber}}</h1>
-  </div> -->
+  <div class="PreviewTab">
+
+    <h1>Preview Tab</h1>
+
+    <h3>{{firstname}}</h3>
+    <h3>{{lastname}}</h3>
+    <h3>{{emailaddress}}</h3>
+    <h3>{{phonenumber}}</h3>
+  </div>
+
 
 </div>

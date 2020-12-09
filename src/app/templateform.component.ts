@@ -22,9 +22,9 @@ export class TemplateFormComponent
   onSubmit()
   {
     alert('Student Form Submitted successfully');
-    console.log(this.firstname+" "+this.lastname+" "+this.emailaddress+" "+this.phonenumber);
     this.studentList.push(new Student(this.firstname,this.lastname,this.emailaddress,this.phonenumber));
-    console.log(this.studentList);
+    console.log(this.firstname+" "+this.lastname+" "+this.emailaddress+" "+this.phonenumber);
+    console.log(this.studentList[this.studentList.length-1]);
   }
   
 }
